@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { NavLink } from 'react-router-dom'
-import * as styles from '@orderandchaos/react-styles/dist/styles.css'
+import styles from '@orderandchaos/react-styles/dist/styles.module.css'
+
 import { IButton, ILinkButton } from '../interfaces/components'
 
 export const Button: FC<IButton> = ({ className = '', iconLeft = null, iconRight = null, children, ...rest }) => (

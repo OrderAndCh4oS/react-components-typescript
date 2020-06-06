@@ -1,5 +1,6 @@
 import React, { FC, HTMLProps } from 'react'
-import * as styles from '@orderandchaos/react-styles/dist/styles.css'
+import styles from '@orderandchaos/react-styles/dist/styles.module.css'
+
 import { IPicture } from '../interfaces/components'
 
 const Picture: FC<IPicture> = ({ src, sources, alt, className = '' }) =>

@@ -11,7 +11,7 @@ export interface IColumn extends ITagged {
 
 export interface ITable extends HTMLProps<any> {
   headerRows?: JSX.Element[][];
-  rows?:JSX.Element[][];
+  bodyRows?:JSX.Element[][];
 }
 
 export interface IPicture extends HTMLProps<any> {

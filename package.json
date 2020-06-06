@@ -59,5 +59,10 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "@orderandchaos/react-styles": "^0.2.2",
+    "@types/react-router-dom": "^5.1.5",
+    "react-router-dom": "^5.2.0"
+  }
 }

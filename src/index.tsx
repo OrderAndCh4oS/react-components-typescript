@@ -1,10 +1,8 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+import styles from '@orderandchaos/react-styles/dist/styles.module.css'
 
-interface Props {
-  text: string
-}
-
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export {Container, ContainerFullWidth, Row, Column, Panel, Table} from './components/structure';
+export {Title, Pretitle, IntroText, Text, BlockQuote, Citation} from './components/typography';
+export {Field, Input, TextArea, Select, Switch, FormError} from './components/form';
+export {Button, Link, LinkButton} from './components/button';
+export {Picture, Caption} from './components/media';
+export {styles};

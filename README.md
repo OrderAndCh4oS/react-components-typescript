@@ -13,16 +13,26 @@ npm install --save @orderandchaos/react-components-typescript
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React from 'react';
+import {Column, ContainerFullWidth, Row, Title, Text} from "@orderandchaos/react-components-typescript";
+import styles from "@orderandchaos/react-styles/dist/styles.module.css";
 
-import MyComponent from '@orderandchaos/react-components-typescript'
-import '@orderandchaos/react-components-typescript/dist/index.css'
+const App = () =>
+    <ContainerFullWidth>
+        <Row className={styles.bc_black}>
+            <Column className={styles.col6}>
+                <Title tag={'h1'}>Hello World</Title>
+                <Text>Blah blah blah</Text>
+            </Column>
+            <Column className={styles.col6}>
+                <Title tag={'h1'}>Second Column</Title>
+                <Text>Blah blah blah</Text>
+            </Column>
+        </Row>
+    </ContainerFullWidth>
+;
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
+export default App;
 ```
 
 ## License

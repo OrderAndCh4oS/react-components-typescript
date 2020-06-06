@@ -1,10 +1,22 @@
 import React from 'react'
 
-import { ExampleComponent } from '@orderandchaos/react-components-typescript'
-import '@orderandchaos/react-components-typescript/dist/index.css'
+import { Column, ContainerFullWidth, Row, styles, Text, Title } from '@orderandchaos/react-components-typescript'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return (
+    <ContainerFullWidth className={styles.bc_lighterGrey}>
+      <Row>
+        <Column className={styles.col6}>
+          <Title tag={'h1'}>Hello World</Title>
+          <Text>Blah blah blah</Text>
+        </Column>
+        <Column className={styles.col6}>
+          <Title tag={'h1'}>Second Column</Title>
+          <Text>Blah blah blah</Text>
+        </Column>
+      </Row>
+    </ContainerFullWidth>
+  )
 }
 
 export default App

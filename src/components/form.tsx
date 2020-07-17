@@ -11,14 +11,14 @@ export const Label: FC<HTMLProps<any>> = ({ children, htmlFor }) =>
 export const FormError: FC<IFormError> = ({ error }) =>
   error ? <p className={styles.c_error}>{error}</p> : null;
 
-export const FormField: FC<HTMLProps<any>> = ({ className, children, ...rest }) => (
-  <div className={`${styles.formField}, ${className}`} {...rest}>
+export const FormField: FC<HTMLProps<any>> = ({ className = "", children, ...rest }) => (
+  <div className={`${styles.formField} ${className}`} {...rest}>
     {children}
   </div>
 );
 
-export const Field: FC<IField> = ({ className, type, children, error }) => (
-  <div className={`${styles.formField}, ${type}, ${className}`}>
+export const Field: FC<IField> = ({ className = "", type, children, error }) => (
+  <div className={`${styles.formField} ${type} ${className}`}>
     {children}
     <FormError error={error}/>
   </div>

@@ -3,10 +3,11 @@ import styles from '@orderandchaos/react-styles/dist/styles.module.css'
 
 import { IPicture } from '../interfaces/components'
 
-const Picture: FC<IPicture> = ({ src, sources, alt, className = '' }) =>
-  <picture>
+const Picture: FC<IPicture> = ({ src, sources, alt, className = '', ...rest }) =>
+  <picture {...rest}>
     {sources.map(source => <source
-      srcSet={source.srcSet} media={source.media}
+      srcSet={source.srcSet}
+      media={source.media}
     />)}
     <img
       alt={alt}

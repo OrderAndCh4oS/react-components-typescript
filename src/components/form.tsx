@@ -3,13 +3,15 @@ import styles from "@orderandchaos/react-styles/dist/styles.module.css";
 
 import { IField, IFormError, IInput, ISelect, ISwitch, ITextArea } from "../interfaces/components";
 
-export const Label: FC<HTMLProps<any>> = ({ children, htmlFor }) =>
+export const Label: FC<HTMLProps<any>> = ({ children, htmlFor, ...rest }) =>
   <label
-    htmlFor={htmlFor} className={styles.label_text}
+    htmlFor={htmlFor}
+    className={styles.label_text}
+    {...rest}
   >{children}</label>;
 
-export const FormError: FC<IFormError> = ({ error }) =>
-  error ? <p className={styles.c_error}>{error}</p> : null;
+export const FormError: FC<IFormError> = ({ error, ...rest }) =>
+  error ? <p className={styles.c_error} {...rest}>{error}</p> : null;
 
 export const FormField: FC<HTMLProps<any>> = ({ className = "", children, ...rest }) => (
   <div className={`${styles.formField} ${className}`} {...rest}>
@@ -17,8 +19,8 @@ export const FormField: FC<HTMLProps<any>> = ({ className = "", children, ...res
   </div>
 );
 
-export const Field: FC<IField> = ({ className = "", type, children, error }) => (
-  <div className={`${styles.formField} ${type} ${className}`}>
+export const Field: FC<IField> = ({ className = "", type, children, error, ...rest }) => (
+  <div className={`${styles.formField} ${type} ${className}`} {...rest}>
     {children}
     <FormError error={error}/>
   </div>
@@ -32,13 +34,13 @@ export const Input: FC<IInput> = (
     error = null,
     valid = null,
     className = "",
-    ...props
+    ...rest
   }) => {
   return (
     <Field type={type} error={error}>
       <Label htmlFor={name}>{label}</Label>
       <input
-        {...props}
+        {...rest}
         id={name}
         name={name}
         type={type}
@@ -57,12 +59,12 @@ export const TextArea: FC<ITextArea> = (
     error = null,
     valid = null,
     className = "",
-    ...props
+    ...rest
   }) => (
   <Field type='formField--textArea' error={error}>
     <Label htmlFor={name}>{label}</Label>
     <textarea
-      {...props}
+      {...rest}
       id={name}
       name={name}
       className={`input_textArea ${error
@@ -81,13 +83,13 @@ export const Select: FC<ISelect> = (
     className = "",
     options = [],
     initialField = "Select an option",
-    ...props
+    ...rest
   }) => {
   return (
     <Field type='formField_select' error={error}>
       <Label htmlFor={name}>{label}</Label>
       <select
-        {...props}
+        {...rest}
         id={name}
         name={name}
         className={`input_select ${error

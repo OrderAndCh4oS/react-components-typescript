@@ -4,7 +4,7 @@ import styles from '@orderandchaos/react-styles/dist/styles.module.css'
 import { ITagged } from '../interfaces/components'
 
 
-export const Title: FC<ITagged> = ({ tag = 'h1', className = '', children, ...rest }): JSX.Element => {
+export const Title: FC<ITagged> = ({ tag = 'h1', className = '', children, ...rest }) => {
   const Tag: any = `${tag}`
   return <Tag className={`title ${className}`} {...rest}>{children}</Tag>
 }

@@ -5,4 +5,5 @@ export {Title, Pretitle, IntroText, Text, BlockQuote, Citation} from './componen
 export {Label, FormField, Field, Input, TextArea, Select, Switch, FormError} from './components/form';
 export {Button, Link, LinkButton} from './components/button';
 export {Picture, Caption} from './components/media';
+export {Loading} from './components/loading';
 export {styles};

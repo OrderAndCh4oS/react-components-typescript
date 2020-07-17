@@ -10,7 +10,7 @@ export const Label: FC<HTMLProps<any>> = ({ children, htmlFor, ...rest }) =>
     {...rest}
   >{children}</label>;
 
-export const FormError: FC<IFormError> = ({ error, ...rest }) =>
+export const FormError: FC<IFormError&HTMLProps<any>> = ({ error, ...rest }) =>
   error ? <p className={styles.c_error} {...rest}>{error}</p> : null;
 
 export const FormField: FC<HTMLProps<any>> = ({ className = "", children, ...rest }) => (

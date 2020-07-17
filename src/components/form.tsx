@@ -1,42 +1,42 @@
-import React, { FC, HTMLProps } from 'react'
-import styles from '@orderandchaos/react-styles/dist/styles.module.css'
+import React, { FC, HTMLProps } from "react";
+import styles from "@orderandchaos/react-styles/dist/styles.module.css";
 
-import { IField, IFormError, IInput, ISelect, ISwitch, ITextArea } from '../interfaces/components'
+import { IField, IFormError, IInput, ISelect, ISwitch, ITextArea } from "../interfaces/components";
 
-export const Label: FC<HTMLProps<any>> = ({ label, htmlFor }) =>
+export const Label: FC<HTMLProps<any>> = ({ children, htmlFor }) =>
   <label
     htmlFor={htmlFor} className={styles.label_text}
-  >{label}</label>
+  >{children}</label>;
 
-export const FormError: FC<IFormError> = ({ error }) => error ?
-  <p className={styles.c_error}>{error}</p> : null
+export const FormError: FC<IFormError> = ({ error }) =>
+  error ? <p className={styles.c_error}>{error}</p> : null;
 
 export const FormField: FC<HTMLProps<any>> = ({ className, children, ...rest }) => (
   <div className={`${styles.formField}, ${className}`} {...rest}>
     {children}
   </div>
-)
+);
 
 export const Field: FC<IField> = ({ className, type, children, error }) => (
   <div className={`${styles.formField}, ${type}, ${className}`}>
     {children}
     <FormError error={error}/>
   </div>
-)
+);
 
 export const Input: FC<IInput> = (
   {
     label,
     name,
-    type = 'text',
+    type = "text",
     error = null,
     valid = null,
-    className = '',
+    className = "",
     ...props
   }) => {
   return (
     <Field type={type} error={error}>
-      <Label label={label} htmlFor={name}/>
+      <Label htmlFor={name}>{label}</Label>
       <input
         {...props}
         id={name}
@@ -44,11 +44,11 @@ export const Input: FC<IInput> = (
         type={type}
         className={`input ${error ? styles.input_error : null}, ${valid
           ? styles.input_valid
-          : ''}, ${className}`}
+          : ""}, ${className}`}
       />
     </Field>
-  )
-}
+  );
+};
 
 export const TextArea: FC<ITextArea> = (
   {
@@ -56,21 +56,21 @@ export const TextArea: FC<ITextArea> = (
     name,
     error = null,
     valid = null,
-    className = '',
+    className = "",
     ...props
   }) => (
   <Field type='formField--textArea' error={error}>
-    <Label label={label} htmlFor={name}/>
+    <Label htmlFor={name}>{label}</Label>
     <textarea
       {...props}
       id={name}
       name={name}
       className={`input_textArea ${error
         ? styles.input_error
-        : ''} ${valid ? styles.input_valid : null} ${className}`}
+        : ""} ${valid ? styles.input_valid : null} ${className}`}
     />
   </Field>
-)
+);
 
 export const Select: FC<ISelect> = (
   {
@@ -78,21 +78,21 @@ export const Select: FC<ISelect> = (
     name,
     error = null,
     valid = null,
-    className = '',
+    className = "",
     options = [],
-    initialField = 'Select an option',
+    initialField = "Select an option",
     ...props
   }) => {
   return (
     <Field type='formField_select' error={error}>
-      <Label label={label} htmlFor={name}/>
+      <Label htmlFor={name}>{label}</Label>
       <select
         {...props}
         id={name}
         name={name}
         className={`input_select ${error
           ? styles.input_error
-          : ''} ${className}`}
+          : ""} ${className}`}
       >
         <option value="">{initialField}</option>
         {options.map((option) =>
@@ -102,8 +102,8 @@ export const Select: FC<ISelect> = (
         )}
       </select>
     </Field>
-  )
-}
+  );
+};
 
 export const Switch: FC<ISwitch> = (
   {
@@ -113,28 +113,28 @@ export const Switch: FC<ISwitch> = (
     error,
     onChangeHandler,
     onBlurHandler,
-    className = '',
+    className = "",
     ...rest
   }) => {
   const classes = `${styles.button_switch} ${className} ${value
     ? styles.button_switch_on
-    : ''}`
-  const title = value ? 'On' : 'Off'
+    : ""}`;
+  const title = value ? "On" : "Off";
   return (
     <Field type='formField_switch' error={error}>
-      <Label label={label} htmlFor={name}/>
+      <Label htmlFor={name}>{label}</Label>
       <button
         id={name}
         title={title}
         onBlur={() => {
-          onBlurHandler(true)
+          onBlurHandler(true);
         }}
         onClick={() => {
-          onChangeHandler(name, !value)
+          onChangeHandler(name, !value);
         }}
         className={classes}
         {...rest}
       />
     </Field>
-  )
-}
+  );
+};

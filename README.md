@@ -18,13 +18,13 @@ import {Column, ContainerFullWidth, Row, Title, Text} from "@orderandchaos/react
 import styles from "@orderandchaos/react-styles/dist/styles.module.css";
 
 const App = () =>
-    <ContainerFullWidth>
-        <Row className={styles.bc_black}>
-            <Column className={styles.col6}>
+    <ContainerFullWidth className={styles.bc_lighterGrey}>
+        <Row>
+            <Column columnClass={styles.col6}>
                 <Title tag={'h1'}>Hello World</Title>
                 <Text>Blah blah blah</Text>
             </Column>
-            <Column className={styles.col6}>
+            <Column columnClass={styles.col6}>
                 <Title tag={'h1'}>Second Column</Title>
                 <Text>Blah blah blah</Text>
             </Column>

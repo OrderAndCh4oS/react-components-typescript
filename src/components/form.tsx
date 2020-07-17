@@ -3,13 +3,19 @@ import styles from '@orderandchaos/react-styles/dist/styles.module.css'
 
 import { IField, IFormError, IInput, ISelect, ISwitch, ITextArea } from '../interfaces/components'
 
-const Label: FC<HTMLProps<any>> = ({ label, htmlFor }) =>
+export const Label: FC<HTMLProps<any>> = ({ label, htmlFor }) =>
   <label
     htmlFor={htmlFor} className={styles.label_text}
   >{label}</label>
 
 export const FormError: FC<IFormError> = ({ error }) => error ?
   <p className={styles.c_error}>{error}</p> : null
+
+export const FormField: FC<IField> = ({ className, children, ...rest }) => (
+  <div className={`${styles.formField}, ${className}`} {...rest}>
+    {children}
+  </div>
+)
 
 export const Field: FC<IField> = ({ className, type, children, error }) => (
   <div className={`${styles.formField}, ${type}, ${className}`}>

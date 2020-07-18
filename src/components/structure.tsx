@@ -5,7 +5,6 @@ import {IColumn, ITable, ITagged} from '../interfaces/components'
 
 export const Container: FC<ITagged> = ({tag = 'div', children, className = '', ...rest}) => {
     const Tag: any = `${tag}`
-    console.log(styles.container);
     return (
         <Tag
             className={`${styles.container} ${className}`}

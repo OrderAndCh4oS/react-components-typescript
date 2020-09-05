@@ -44,11 +44,11 @@ export interface ISelect extends HTMLProps<any>, IFormError, IFormValid  {
 }
 
 export interface IFormError {
-  error: string | null;
+  error?: string | null;
 }
 
 export interface IFormValid {
-  valid: string | null;
+  valid?: string | null;
 }
 
 export interface ISwitch extends ButtonHTMLAttributes<any>, IFormError {

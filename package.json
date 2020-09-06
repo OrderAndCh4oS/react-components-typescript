@@ -62,7 +62,7 @@
     "dist"
   ],
   "dependencies": {
-    "@orderandchaos/react-styles": "^0.2.4",
+    "@orderandchaos/react-styles": "^0.2.10",
     "@types/react-router-dom": "^5.1.5",
     "react-router-dom": "^5.2.0"
   }

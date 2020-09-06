@@ -28,6 +28,10 @@ export interface IButton extends ButtonHTMLAttributes<any>  {
   iconRight?: SVGElement | JSX.Element
 }
 
+export interface IRadioButton extends ButtonHTMLAttributes<any>  {
+  checked: boolean
+}
+
 export interface ILinkButton extends IButton  {
   to: string
 }

@@ -53,7 +53,7 @@ export const Input: FC<IInput> = (
       : ""}, ${className}`}
   />;
 
-export const InputField: FC<IInputField> = (
+export const InputField: FC<IInput> = (
   {
     label,
     name,
@@ -88,7 +88,7 @@ export const TextArea: FC<ITextArea> = (
       : ""} ${valid ? styles.input_valid : null} ${className}`}
   />;
 
-export const TextAreaField: FC<ITextAreaField> = (
+export const TextAreaField: FC<ITextArea> = (
   {
     label,
     name,

@@ -1,34 +1,60 @@
-import React, { FC } from 'react'
-import { NavLink } from 'react-router-dom'
-import styles from '@orderandchaos/react-styles/dist/styles.module.css'
+import React, { FC } from "react";
+import { NavLink } from "react-router-dom";
+import styles from "@orderandchaos/react-styles/dist/styles.module.css";
 
-import { IButton, ILinkButton, IRadioButton } from "../interfaces/components";
+import { IButton, ILinkButton, IRadioButton, ISwitch } from "../interfaces/components";
 
-export const Button: FC<IButton> = ({ className = '', iconLeft = null, iconRight = null, children, ...rest }) => (
+export const Button: FC<IButton> = ({ className = "", iconLeft = null, iconRight = null, children, ...rest }) => (
   <button className={`${styles.button} ${className}`} {...rest}>
     {iconLeft ? <span className={styles.button_iconLeft}>{iconLeft}</span> : null}
     {children}
     {iconRight ? <span className={styles.button_iconRight}>{iconRight}</span> : null}
   </button>
-)
+);
 
-export const LinkButton: FC<ILinkButton> = ({ to, className = '', iconLeft = null, iconRight = null, children, ...rest }) => (
+export const LinkButton: FC<ILinkButton> = ({ to, className = "", iconLeft = null, iconRight = null, children, ...rest }) => (
   <NavLink to={to} className={`${styles.button} ${className}`} {...rest}>
     {iconLeft ? <span className={styles.button_iconLeft}>{iconLeft}</span> : null}
     {children}
     {iconRight ? <span className={styles.button_iconRight}>{iconRight}</span> : null}
   </NavLink>
-)
+);
 
-export const Link: FC<ILinkButton> = ({ to, className = '', iconLeft = null, iconRight = null, children, ...rest }) => (
+export const Link: FC<ILinkButton> = ({ to, className = "", iconLeft = null, iconRight = null, children, ...rest }) => (
   <NavLink to={to} className={`link ${className}`} {...rest}>
     {iconLeft ? <span className={styles.button_iconLeft}>{iconLeft}</span> : null}
     {children}
     {iconRight ? <span className={styles.button_iconRight}>{iconRight}</span> : null}
   </NavLink>
-)
+);
 
-export const RadioButton: FC<IRadioButton> = ({value, className = '', children, checked = false, ...rest}) =>
-  <button className={`${styles.button_radio} ${checked ? styles.checked : ''} ${className}`} {...rest}>
+export const RadioButton: FC<IRadioButton> = ({ value, className = "", children, checked = false, ...rest }) =>
+  <button className={`${styles.button_radio} ${checked ? styles.checked : ""} ${className}`} {...rest}>
     {children}
   </button>;
+
+
+export const SwitchButton: FC<ISwitch> = (
+  {
+    value = false,
+    name,
+    error,
+    onChangeHandler,
+    onBlurHandler,
+    className = "",
+    ...rest
+  }) => {
+  const title = value ? "On" : "Off";
+  return <button
+    id={name}
+    title={title}
+    onBlur={() => {
+      onBlurHandler(true);
+    }}
+    onClick={() => {
+      onChangeHandler(name, !value);
+    }}
+    className={className}
+    {...rest}
+  />;
+};

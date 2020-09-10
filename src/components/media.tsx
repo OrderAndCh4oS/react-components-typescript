@@ -1,9 +1,9 @@
-import React, { FC, HTMLProps } from 'react'
-import styles from '@orderandchaos/react-styles/dist/styles.module.css'
+import React, { FC, HTMLProps } from "react";
+import styles from "@orderandchaos/react-styles/dist/styles.module.css";
 
-import { IPicture } from '../interfaces/components'
+import { IPicture } from "../interfaces/components";
 
-const Picture: FC<IPicture> = ({ src, sources, alt, className = '', ...rest }) =>
+const Picture: FC<IPicture> = ({ src, sources, alt, className = "", ...rest }) =>
   <picture {...rest}>
     {sources.map(source => <source
       srcSet={source.srcSet}
@@ -14,11 +14,11 @@ const Picture: FC<IPicture> = ({ src, sources, alt, className = '', ...rest }) =
       src={src}
       className={`image picture ${className}`}
     />
-  </picture>
+  </picture>;
 
 
-const Caption: FC<HTMLProps<any>> = ({ className = '', children, ...rest }) =>
-  <p className={`${styles.text_caption} ${className}`} {...rest}>{children}</p>
+const Caption: FC<HTMLProps<any>> = ({ className = "", children, ...rest }) =>
+  <p className={`${styles.text_caption} ${className}`} {...rest}>{children}</p>;
 
 
-export { Picture, Caption }
+export { Picture, Caption };

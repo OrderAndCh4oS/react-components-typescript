@@ -55,16 +55,13 @@ export interface IFormValid {
   valid?: string | null;
 }
 
-export interface ISwitchField extends ButtonHTMLAttributes<any>, IFormError {
-  label: string;
-  onBlurHandler: (value: boolean) => void;
-  onChangeHandler: (name: string | undefined, value: boolean) => void;
+export interface ISwitchButton extends ButtonHTMLAttributes<any>, IFormError {
+  active: boolean;
 }
 
-export interface ISwitch extends ButtonHTMLAttributes<any>, IFormError {
-  value: string | number | boolean | string[];
-  onBlurHandler: (value: boolean) => void;
-  onChangeHandler: (name: string | undefined, value: boolean) => void;
+export interface ISwitchField extends ButtonHTMLAttributes<any>, IFormError {
+  active: boolean;
+  label: string;
 }
 
 export interface IOption {

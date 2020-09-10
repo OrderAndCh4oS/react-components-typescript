@@ -1,14 +1,7 @@
 import React, { FC, HTMLProps } from "react";
 import styles from "@orderandchaos/react-styles/dist/styles.module.css";
 
-import {
-  IField,
-  IFormError,
-  IInput,
-  ISelect,
-  ISwitchField,
-  ITextArea,
-} from "../interfaces/components";
+import { IField, IFormError, IInput, ISelect, ISwitchField, ITextArea } from "../interfaces/components";
 import { SwitchButton } from "./button";
 
 export const Label: FC<HTMLProps<any>> = ({ children, htmlFor, ...rest }) =>
@@ -143,29 +136,27 @@ export const SelectField: FC<ISelect> = (
   return (
     <Field type='formField_select' error={error}>
       <Label htmlFor={name}>{label}</Label>
-      <Select {...({name, error, valid, className, options, initialField, ...rest})}/>
+      <Select {...({ name, error, valid, className, options, initialField, ...rest })}/>
     </Field>
   );
 };
 
 export const SwitchField: FC<ISwitchField> = (
   {
-    value = false,
+    active = false,
     label,
     name,
     error,
-    onChangeHandler,
-    onBlurHandler,
     className = "",
     ...rest
   }) => {
-  const classes = `${styles.button_switch} ${className} ${value
+  const classes = `${styles.button_switch} ${className} ${active
     ? styles.button_switch_on
     : ""}`;
   return (
     <Field type='formField_switch' error={error}>
       <Label htmlFor={name}>{label}</Label>
-      <SwitchButton {...({value, name, error, onChangeHandler, onBlurHandler, className: classes, ...rest})}/>
+      <SwitchButton {...({ active, name, error, className: classes, ...rest })}/>
     </Field>
   );
 };

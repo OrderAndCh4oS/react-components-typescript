@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "@orderandchaos/react-styles/dist/styles.module.css";
 
-import { IButton, ILinkButton, IRadioButton, ISwitch } from "../interfaces/components";
+import { IButton, ILinkButton, IRadioButton, ISwitchButton } from "../interfaces/components";
 
 export const Button: FC<IButton> = ({ className = "", iconLeft = null, iconRight = null, children, ...rest }) => (
   <button className={`${styles.button} ${className}`} {...rest}>
@@ -28,33 +28,25 @@ export const Link: FC<ILinkButton> = ({ to, className = "", iconLeft = null, ico
   </NavLink>
 );
 
-export const RadioButton: FC<IRadioButton> = ({ value, className = "", children, checked = false, ...rest }) =>
+export const RadioButton: FC<IRadioButton> = ({ className = "", children, checked = false, ...rest }) =>
   <button className={`${styles.button_radio} ${checked ? styles.checked : ""} ${className}`} {...rest}>
     {children}
   </button>;
 
 
-export const SwitchButton: FC<ISwitch> = (
+export const SwitchButton: FC<ISwitchButton> = (
   {
-    value = false,
+    active,
     name,
     error,
-    onChangeHandler,
-    onBlurHandler,
     className = "",
     ...rest
   }) => {
-  const title = value ? "On" : "Off";
+  const title = active ? "On" : "Off";
   return <button
     id={name}
     title={title}
-    onBlur={() => {
-      onBlurHandler(true);
-    }}
-    onClick={() => {
-      onChangeHandler(name, !value);
-    }}
-    className={className}
+    className={`${styles.button_switch} ${active ? styles.button_switch_on : ""} ${className}`}
     {...rest}
   />;
 };

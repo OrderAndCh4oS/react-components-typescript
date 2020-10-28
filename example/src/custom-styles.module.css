@@ -1,0 +1,9 @@
+.button {
+    border-color: blue;
+    background-color: blue
+}
+
+.button:hover, .button:active, .button:focus {
+    border-color: coral;
+    background-color: coral;
+}

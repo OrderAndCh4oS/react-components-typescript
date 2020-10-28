@@ -1,11 +1,11 @@
 import React, { FC, HTMLProps } from "react";
-import styles from "@orderandchaos/react-styles/dist/styles.module.css";
 
 import { IPicture } from "../interfaces/components";
+import { withTheme } from "../context/theme-context";
 
-const Picture: FC<IPicture> = ({ src, sources, alt, className = "", ...rest }) =>
+const Picture: FC<IPicture> = withTheme(({ src, sources, alt, className = "", styles, ...rest }) =>
   <picture {...rest}>
-    {sources.map(source => <source
+    {sources.map((source: {srcSet?: string, media?: string}) => <source
       srcSet={source.srcSet}
       media={source.media}
     />)}
@@ -14,11 +14,13 @@ const Picture: FC<IPicture> = ({ src, sources, alt, className = "", ...rest }) =
       src={src}
       className={`image picture ${className}`}
     />
-  </picture>;
+  </picture>
+);
 
 
-const Caption: FC<HTMLProps<any>> = ({ className = "", children, ...rest }) =>
-  <p className={`${styles.text_caption} ${className}`} {...rest}>{children}</p>;
+const Caption: FC<HTMLProps<any>> = withTheme(({ className = "", children, styles, ...rest }) =>
+  <p className={`${styles.text_caption} ${className}`} {...rest}>{children}</p>
+);
 
 
 export { Picture, Caption };

@@ -14,22 +14,25 @@ npm install --save @orderandchaos/react-components-typescript
 
 ```tsx
 import React from 'react';
-import {Column, ContainerFullWidth, Row, Title, Text} from "@orderandchaos/react-components-typescript";
+import {Column, ContainerFullWidth, Row, Title, Text, ThemeProvider} from "@orderandchaos/react-components-typescript";
 import styles from "@orderandchaos/react-styles/dist/styles.module.css";
+import customStyles from './custom-styles.module.css'
 
 const App = () =>
-    <ContainerFullWidth className={styles.bc_lighterGrey}>
-        <Row>
-            <Column columnClass={styles.col6}>
-                <Title tag={'h1'}>Hello World</Title>
-                <Text>Blah blah blah</Text>
-            </Column>
-            <Column columnClass={styles.col6}>
-                <Title tag={'h1'}>Second Column</Title>
-                <Text>Blah blah blah</Text>
-            </Column>
-        </Row>
-    </ContainerFullWidth>
+    <ThemeProvider theme={customStyles}>
+        <ContainerFullWidth className={styles.bc_lighterGrey}>
+            <Row>
+                <Column columnClass={styles.col6}>
+                    <Title tag={'h1'}>Hello World</Title>
+                    <Text>Blah blah blah</Text>
+                </Column>
+                <Column columnClass={styles.col6}>
+                    <Title tag={'h1'}>Second Column</Title>
+                    <Text>Blah blah blah</Text>
+                </Column>
+            </Row>
+        </ContainerFullWidth>
+    </ThemeProvider>
 ;
 
 export default App;

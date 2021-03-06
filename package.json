@@ -1,6 +1,6 @@
 {
   "name": "@orderandchaos/react-components-typescript",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "react components typescript",
   "author": "sarcoma",
   "license": "MIT",
@@ -62,7 +62,7 @@
     "dist"
   ],
   "dependencies": {
-    "@orderandchaos/react-styles": "^0.3.0",
+    "@orderandchaos/react-styles": "^0.4.0",
     "@types/react-router-dom": "^5.1.5",
     "react-router-dom": "^5.2.0"
   }

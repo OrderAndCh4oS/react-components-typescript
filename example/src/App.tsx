@@ -19,7 +19,7 @@ const App = () => {
     <ThemeProvider theme={customStyles}>
       <ContainerFullWidth className={styles.bc_lighterGrey}>
         <Row>
-          <Column columnClass={styles.col6}>
+          <Column columnClass={`${styles.col6} ${styles.colMed12}`}>
             <Title tag={"h1"}>Hello World</Title>
             <Text>Blah blah blah</Text>
           </Column>
